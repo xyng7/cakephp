@@ -4,12 +4,14 @@
 		<legend><?php echo __('Add Exercise'); ?></legend>
 	<?php
 		echo $this->Form->input('name');
-		echo $this->Form->input('images');
+                ?>
+                <td class="heading" width="30%"><h5 align="left"> &nbsp; Image </h5></td> 
+	<?php	echo $this->Form->file('image', array('label' =>'','size'=>'50'));
 		echo $this->Form->input('videos');
-		echo $this->Form->input('instructions');
-		echo $this->Form->input('BodyPart');
-		echo $this->Form->input('Category');
-		echo $this->Form->input('Equipment');
+		echo $this->Form->input('instructions', array('type' => 'textarea', 'escape' => false));
+		echo $this->Form->input('BodyPart', array('type' => 'select','multiple' => 'checkbox'));
+		echo $this->Form->input('Category', array('type' => 'select','multiple' => 'checkbox'));
+		echo $this->Form->input('Equipment', array('type' => 'select','multiple' => 'checkbox'));
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
