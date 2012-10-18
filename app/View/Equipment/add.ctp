@@ -4,7 +4,7 @@
 		<legend><?php echo __('Add Equipment'); ?></legend>
 	<?php
 		echo $this->Form->input('equipment');
-		echo $this->Form->input('Exercise');
+		echo $this->Form->input('Exercise',array('type' => 'select','multiple' => 'checkbox'));
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
