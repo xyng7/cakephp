@@ -2,11 +2,10 @@
 <?php echo $this->Form->create('Exercise'); ?>
 	<fieldset>
 		<legend><?php echo __('Add Exercise'); ?></legend>
-	<?php
-		echo $this->Form->input('name');
-                ?>
-                <td class="heading" width="30%"><h5 align="left"> &nbsp; Image </h5></td> 
-	<?php	echo $this->Form->file('image', array('label' =>'','size'=>'50'));
+	<?php     echo $this->Form->input('name');?>
+               <td class="heading" width="30%"><h5 align="left"> &nbsp; Image </h5></td> 
+	<?php	
+                             echo $this->Form->file('image', array('label' =>'','size'=>'50'));
 		echo $this->Form->input('videos');
 		echo $this->Form->input('instructions', array('type' => 'textarea', 'escape' => false));
 		echo $this->Form->input('BodyPart', array('type' => 'select','multiple' => 'checkbox'));
