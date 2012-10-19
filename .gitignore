@@ -1,0 +1,13 @@
+app/tmp/
+
+app/tmp/cache/models/myapp_cake_model_default_cakedb_body_parts
+
+app/tmp/cache/models/myapp_cake_model_default_cakedb_categories
+
+app/tmp/cache/models/myapp_cake_model_default_cakedb_clients
+
+app/tmp/cache/models/myapp_cake_model_default_cakedb_list
+
+app/tmp/cache/models/myapp_cake_model_default_cakedb_equipments
+
+app/tmp/cache/models/myapp_cake_model_default_cakedb_exercises
