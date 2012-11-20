@@ -8,3 +8,5 @@ app/tmp/cache/persistent/myapp_cake_core_method_cache
 app/tmp/cache/persistent/myapp_cake_core_file_map
 
 app/tmp/cache/persistent/myapp_cake_core_method_cache
+
+index.php
