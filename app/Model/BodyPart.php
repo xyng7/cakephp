@@ -15,14 +15,17 @@ class BodyPart extends AppModel {
 var $displayField = 'body_part';
     public $validate = array(
 		'body_part' => array(
-			'notempty' => array(
+ //rule 1 - cannot be empty
+			'bodypartRule-1' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+				'message' => 'Enter Body Part',
+                            ),
+                   //rule 2 - must be in alphabet
+                        'bodypartRule-2' => array(
+                                'rule' => '/[A-Za-z]/',
+                                'message' => 'Invalid Name',
 			),
+
                         //is unique
                         'unique' => array(
                                 'rule' => array('isUnique'),

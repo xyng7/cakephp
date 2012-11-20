@@ -18,15 +18,31 @@ class Exercise extends AppModel {
  */
 	public $validate = array(
 		'name' => array(
-			'notempty' => array(
+                    //rule 1 - cannot be empty
+			'nameRule-1' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+				'message' => 'Enter Exercise Name',
+                            ),
+                   //rule 2 - must be in alphabet
+                        'nameRule-2' => array(
+                                'rule' => '/[A-Za-z]/',
+                                'message' => 'Invalid Exercise Name',
 			),
 		),
+            
+            		'instructions' => array(
+                    //rule 1 - cannot be empty
+			'instructionsRule-1' => array(
+				'rule' => array('notempty'),
+				'message' => 'Enter Instructions',
+                            ),
+                   //rule 2 - must be in alphabet
+                        'instructionsRule-2' => array(
+                                'rule' => '/[A-Za-z]/',
+                                'message' => 'Invalid Content',
+			),
+		),
+            
 	
 	);
 

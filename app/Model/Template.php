@@ -24,13 +24,15 @@ class Template extends AppModel {
 			),
 		),
 		'template_name' => array(
-			'notempty' => array(
+			//rule 1 - cannot be empty
+			'templateRule-1' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+				'message' => 'Enter Template Name',
+                            ),
+                   //rule 2 - must be in alphabet
+                        'templateRule-2' => array(
+                                'rule' => '/[A-Za-z]/',
+                                'message' => 'Invalid Name',
 			),
 		),
 	);

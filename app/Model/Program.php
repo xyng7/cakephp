@@ -27,13 +27,15 @@ class Program extends AppModel {
 			),
 		),
 		'name' => array(
-			'notempty' => array(
+			//rule 1 - cannot be empty
+			'programnameRule-1' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+				'message' => 'Enter Program Name',
+                            ),
+                   //rule 2 - must be in alphabet
+                        'bodypartRule-2' => array(
+                                'rule' => '/[A-Za-z]/',
+                                'message' => 'Invalid Name',
 			),
 		),
 	);

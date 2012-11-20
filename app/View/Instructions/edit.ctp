@@ -4,7 +4,7 @@
 	<fieldset>
 		<legend><?php echo __('Edit Instruction'); ?></legend>
 	<?php
-		echo $this->Form->input('instruction'); ?>
+                echo $this->Form->input('instruction', array('type' => 'textarea'));?>
                 
                 <h4><?php echo __('Image'); ?></h4>
                 <?php
