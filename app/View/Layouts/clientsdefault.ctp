@@ -15,8 +15,6 @@
  * @since         CakePHP(tm) v 0.10.0.1076
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
-
-$cakeDescription = __d('cake_dev', 'Chinglish Dev Team - Client Home Page');
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -24,7 +22,7 @@ $cakeDescription = __d('cake_dev', 'Chinglish Dev Team - Client Home Page');
 	<?php echo $this->Html->charset(); ?>
 	<title>
 		
-		<?php echo __('LSBT - Client'); ?>
+		<?php echo __('LSBT - Client'); //tab title ?>
 	</title>
 	<?php
 		echo $this->Html->meta('icon');
@@ -39,7 +37,7 @@ $cakeDescription = __d('cake_dev', 'Chinglish Dev Team - Client Home Page');
 <body>
 	<div id="container">
 		<div id="header">
-			<h1><?php echo __($cakeDescription); ?></h1>
+			<h1><?php echo __('Welcome, ' .AuthComponent::user('username'). '!'); ?></h1>
 		</div>
 		<div id="content">
 

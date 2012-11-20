@@ -11,7 +11,9 @@
 		<td><?php echo h($exercise['Exercise']['name']); ?>&nbsp;</td>
 		<td style="float: left;">
 			<?php echo $this->Html->link(__('Manage Exercise'), array('action' => 'view', $exercise['Exercise']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $exercise['Exercise']['id']), null, __('Are you sure you want to delete # %s? This exercise may be related to many programs', $exercise['Exercise']['name'])); ?>
+			<?php if (AuthComponent::user('role') === 'superadmin')
+                        {
+                        echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $exercise['Exercise']['id']), null, __('Are you sure you want to delete # %s? This exercise may be related to many programs', $exercise['Exercise']['name'])); }?>
 		</td>
 	</tr>
 <?php endforeach; ?>
