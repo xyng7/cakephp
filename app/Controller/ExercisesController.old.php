@@ -8,14 +8,13 @@ App::uses('AppController', 'Controller');
 class ExercisesController extends AppController {
     
 
-    public function isAuthorized($user) {
+public function isAuthorized($user) {
     
-        if (in_array($this->action, array('delete', 'edit', 'index_superadmin'))) {
+        if (in_array($this->action, array('delete'))) {
         
             if (isset($user['role']) && ($user['role'] === 'admin')) {
         return false;
-     } }
-     
+     } } 
     return parent::isAuthorized($user);
     }    
 
@@ -25,23 +24,8 @@ class ExercisesController extends AppController {
  * @return void
  */
 	public function index() {
-            
-            if (AuthComponent::user('role') === 'superadmin')
-            {
-                 $this->redirect(array('action' => 'index_superadmin'));
-                
-            }
-            else {
-                $this->Exercise->recursive = 0;
-		$this->set('exercises', $this->paginate());
-            }  
-	}
-        
-        public function index_superadmin() {
-      
 		$this->Exercise->recursive = 0;
 		$this->set('exercises', $this->paginate());
-                
 	}
 
 /**
