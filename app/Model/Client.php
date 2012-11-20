@@ -61,6 +61,7 @@ class Client extends AppModel {
             'rule' => 'date',
         ),
         //phone field
+                //phone field
         'phone' => array(
             //rule 1 - cannot be empty
             'phoneRule-1' => array(
@@ -68,9 +69,11 @@ class Client extends AppModel {
                 'message' => 'Enter Phone Number'
             ),
             //rule 2 - must be 10 digit start with '0' 
+            //rule 2 - must be 10 digit start with '02,03,04,07,08' 
             'phoneRule-2' => array(
                 'rule' => '/^(?:\+?61|0)[2-478](?:[ -]?[0-9]){8}$/',
                 'message' => '10-digit required',
+                'message' => '10-digit required starting with either 02 to 04 and 07 to 08, e.g. 0212345678',
                 'last' => true, // Stop validation after this rule
             ),
         ),
@@ -82,9 +85,12 @@ class Client extends AppModel {
                 'message' => 'Enter Phone Number'
             ),
             //rule 2 - must be 10 digit start with '0' 
+            //rule 2 - must be 10 digit start with '04' 
             'mobileRule-2' => array(
                 'rule' => '/^(?:\+?61|0)[2-478](?:[ -]?[0-9]){8}$/',
                 'message' => '10-digit required',
+                'rule' => '/^(?:\+?61|0)4\)?(?:[ -]?[0-9]){7}[0-9]$/',
+                'message' => '10-digit required starting with 04, e.g. 0412345678',
                 'last' => true,
             ),
         ),
