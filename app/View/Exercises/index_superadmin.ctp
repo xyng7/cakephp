@@ -40,8 +40,22 @@
     
                 <li><?php echo $this->Html->link(__('New Exercise'), array('action' => 'add')); ?></li>
         
-        
+                <p>
+                <br>
+                <br>
+                </p>
         
                
-        
+        <h3><?php echo __('Other'); ?></h3>
+	<ul>
+		
+		
+		<li><?php echo $this->Html->link(__('Manage Body Parts'), array('controller' => 'body_parts', 'action' => 'index')); ?> </li>
+		
+		<li><?php echo $this->Html->link(__('Manage Categories'), array('controller' => 'categories', 'action' => 'index')); ?> </li>
+		
+		<li><?php echo $this->Html->link(__('Manage Equipment'), array('controller' => 'equipment', 'action' => 'index')); ?> </li>
+		
+		
+	</ul> 
 </div>
