@@ -21,7 +21,6 @@ class User extends AppModel {
             'required' => array(
                 'rule' => array('notEmpty'),
                 'message' => 'A password is required'
-            )
             ),
             //rule 2 - must be 6-8character
             'passwordRule-2' => array(
@@ -32,7 +31,6 @@ class User extends AppModel {
         ),
         'role' => array(
             'valid' => array(
-                'rule' => array('inList', array('admin', 'client', 'superadmin')),  //Client, superadmin and admin roles
                 'rule' => array('inList', array('admin', 'client', 'superadmin')), //Client, superadmin and admin roles
                 'message' => 'Please enter a valid role',
                 'allowEmpty' => false
@@ -42,24 +40,14 @@ class User extends AppModel {
             'required' => array(
                 'rule' => array('notEmpty'),
                 'message' => 'A password is required'
-                
-            
-        )
-        ));
-    
-    
             )
             ));
 
     public function beforeSave($options = array()) {
-    if (isset($this->data[$this->alias]['password'])) {
-        $this->data[$this->alias]['password'] = AuthComponent::password($this->data[$this->alias]['password']);
         if (isset($this->data[$this->alias]['password'])) {
             $this->data[$this->alias]['password'] = AuthComponent::password($this->data[$this->alias]['password']);
+        }
         return true;
     }
-    return true;
-    }
-    
 
 }
