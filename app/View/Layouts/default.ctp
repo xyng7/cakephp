@@ -69,13 +69,7 @@ $homedir = __d('cake_dev', 'CakePHP: the rapid development php framework :D');
                         
                     <li>
                     Chinglish Dev Team
-			<?php /*echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
-					'http://www.cakephp.org/',
-					array('target' => '_blank', 'escape' => false)
-				);
-                        
-			*/?></li>
+			</li>
                     <li><p> Logged in as: 
     <?php echo AuthComponent::user('username'); ?>
                         </p></li>

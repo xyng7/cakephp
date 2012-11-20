@@ -6,6 +6,17 @@ App::uses('AppController', 'Controller');
  * @property Exercise $Exercise
  */
 class ExercisesController extends AppController {
+    
+
+public function isAuthorized($user) {
+    
+        if (in_array($this->action, array('delete'))) {
+        
+            if (isset($user['role']) && ($user['role'] === 'admin')) {
+        return false;
+     } } 
+    return parent::isAuthorized($user);
+    }    
 
 /**
  * index method
@@ -40,7 +51,14 @@ class ExercisesController extends AppController {
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->Exercise->create();
-			if ($this->Exercise->save($this->request->data)) {
+                       // debug($this->data);
+                       // $this->request->data['bodypart']['bodypart'] = array(); 
+                       // foreach($this->data['bodypart'.'checkbox'] as $k=>$v) 
+                       // { 
+                        //    if ($v) $this->request->data['bodypart']['bodypart'][] = $k; 
+                       // } 
+			
+                        if ($this->Exercise->save($this->request->data)) {
 				$this->Session->setFlash(__('The exercise has been saved'));
 				$this->redirect(array('action' => 'index'));
 			} else {
@@ -50,7 +68,10 @@ class ExercisesController extends AppController {
 		$bodyParts = $this->Exercise->BodyPart->find('list');
 		$categories = $this->Exercise->Category->find('list');
 		$equipment = $this->Exercise->Equipment->find('list');
+                
 		$this->set(compact('bodyParts', 'categories', 'equipment'));
+             
+               
 	}
 
 /**
@@ -78,7 +99,9 @@ class ExercisesController extends AppController {
 		$bodyParts = $this->Exercise->BodyPart->find('list');
 		$categories = $this->Exercise->Category->find('list');
 		$equipment = $this->Exercise->Equipment->find('list');
-		$this->set(compact('bodyParts', 'categories', 'equipment'));
+		$programs = $this->Exercise->Program->find('list');
+                $exercise = $this->Exercise->read(null, $id);
+		$this->set(compact('bodyParts', 'categories', 'equipment', 'programs', 'exercise'));
 	}
 
 /**

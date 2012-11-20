@@ -4,16 +4,25 @@ class UsersController extends AppController {
 
     public function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow('logout'); //logout??
+        $this->Auth->allow('logout', 'forgotpassword'); //logout??
         
     }
+    
+     public function isAuthorized($user) {
+    
+        if (in_array($this->action, array('edit', 'add', 'delete'))) {
+        
+            if (isset($user['role']) && ($user['role'] === 'admin')) {
+        return false;
+     } } 
+    return parent::isAuthorized($user);
+    }
+
 
     public function index() {
-        //$this->User->recursive = 0;
-        //$this->set('users', $this->paginate());
         $this->User->recursive = 0;
-        $cond = array('OR' =>array('User.role' => 'admin'));
-        $this->set('users', $this->paginate("User", $cond));
+        $data = $this->paginate('User', array('User.role LIKE' => '%admin'));
+        $this->set('users', $data); 
     }
 
     public function view($id = null) {
@@ -33,7 +42,7 @@ class UsersController extends AppController {
                     
                 'username' => $this->request->data('User.username'),
                 'password' => $this->request->data('User.password'),
-		'role' => 'admin'))) 
+		'role' => $this->request->data('User.role')))) 
                {
                 $this->Session->setFlash(__('The user has been saved'));
                $this->redirect(array('action' => 'index'));
@@ -126,4 +135,38 @@ class UsersController extends AppController {
         $this->Session->setFlash('Logout successful');
     $this->redirect($this->Auth->logout());
 }
+    
+    public function editmyown($id = null) {
+        $this->User->id = $id;
+      
+       if (!$this->User->exists() || AuthComponent::user('id') != $id) {   
+           throw new NotFoundException(__('Invalid user'));
+            
+        }
+        if (AuthComponent::password($this->request->data('User.password')) == AuthComponent::password($this->request->data('User.password_confirm')))
+        {
+            
+        if ($this->request->is('post') || $this->request->is('put')) {
+          
+            if ($this->User->save($this->request->data)) {
+                $this->Session->setFlash(__('The user has been saved'));
+                $this->redirect(array('action' => 'index'));
+            } 
+            else {
+                $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
+            }
+        } else {
+            $this->request->data = $this->User->read(null, $id);
+            unset($this->request->data['User']['password']);
+        }
+    }
+    else {
+            $this->Session->setFlash(__('Password do not match, please try again.'));
+   }}
+   
+   public function forgotpassword() {
+       $this->layout = 'forgotpassworddefault';  //dont use default layout with menu icons
+   }
+   
+
 }

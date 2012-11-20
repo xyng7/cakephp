@@ -19,17 +19,25 @@
 		</dd>
 		<dt><?php echo __('Created'); ?></dt>
 		<dd>
-			<?php echo h($user['User']['created']); ?>
+			<?php echo $this->Time->format('d-m-Y, H:i:s', h($user['User']['created'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Modified'); ?></dt>
 		<dd>
-			<?php echo h($user['User']['modified']); ?>
+			<?php echo $this->Time->format('d-m-Y, H:i:s', h($user['User']['modified'])); ?>
 			&nbsp;
 		</dd>
                 <dt><?php echo __('Last Login'); ?></dt>
 		<dd>
-			<?php echo h($user['User']['last_login']); ?>
+			<?php if($user['User']['last_login'] != null) 
+                                { 
+                                echo $this->Time->format('d-m-Y, H:i:s', h($user['User']['last_login']));
+                                } 
+                                else 
+                                { 
+                                echo null; 
+                                }
+                    ?>
 			&nbsp;
 		</dd>
 	</dl>
@@ -37,9 +45,6 @@
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('Edit User'), array('action' => 'edit', $user['User']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete User'), array('action' => 'delete', $user['User']['id']), null, __('Are you sure you want to delete # %s?', $user['User']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Users'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New User'), array('action' => 'add')); ?> </li>
+                <li><?php echo $this->Html->link(__('List Users'), array('action' => 'index')); ?> </li>
 	</ul>
 </div>

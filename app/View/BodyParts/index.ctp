@@ -2,19 +2,16 @@
 	<h2><?php echo __('Body Parts'); ?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('body_part'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php
 	foreach ($bodyParts as $bodyPart): ?>
 	<tr>
-		<td><?php echo h($bodyPart['BodyPart']['id']); ?>&nbsp;</td>
 		<td><?php echo h($bodyPart['BodyPart']['body_part']); ?>&nbsp;</td>
-		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $bodyPart['BodyPart']['id'])); ?>
+		<td>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $bodyPart['BodyPart']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $bodyPart['BodyPart']['id']), null, __('Are you sure you want to delete # %s?', $bodyPart['BodyPart']['id'])); ?>
+			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $bodyPart['BodyPart']['id']), null, __('Are you sure you want to delete # %s? This body part may be related to exercises that could effect searching', $bodyPart['BodyPart']['body_part'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
@@ -38,7 +35,6 @@
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('New Body Part'), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Exercises'), array('controller' => 'exercises', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Exercise'), array('controller' => 'exercises', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Back'), array('controller' => 'exercises', 'action' => 'index')); ?> </li>
 	</ul>
 </div>

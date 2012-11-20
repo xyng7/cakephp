@@ -12,6 +12,17 @@ class EquipmentController extends AppController {
  *
  * @return void
  */
+    public function isAuthorized($user) {
+    
+        if (in_array($this->action, array('delete', 'add', 'edit', 'index'))) {
+        
+            if (isset($user['role']) && ($user['role'] === 'admin')) {
+                $this->Session->setFlash(__('You must be Superadmin to access this function'));
+        return false;
+     } } 
+    return parent::isAuthorized($user);
+    }
+    
 	public function index() {
 		$this->Equipment->recursive = 0;
 		$this->set('equipment', $this->paginate());

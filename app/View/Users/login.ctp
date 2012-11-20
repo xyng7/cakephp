@@ -7,7 +7,7 @@
     echo $this->Html->image('lsbtlogo.jpeg', array('alt'=>'Lsbt logo', 'border'=>'0'));  
     ?> 
 
-    <div style="float: right; width: 70%; margin-right: 100px;">   
+    <div style="float: right; width: 60%; margin-right: 100px;">   
     <?php echo $this->Session->flash('auth'); ?>
     <?php echo $this->Form->create('User'); ?>	
   
@@ -19,7 +19,7 @@
     ?>
     
     <?php echo $this->Form->end(__('Login')); ?>
-    <?php echo $this->Html->link(__('Fogot password?'), array('controller' => 'forgotpassword', 'action' => 'index')); ?>
+    <?php echo $this->Html->link(__('Fogot password?'), array('action' => 'forgotpassword')); ?>
     </fieldset>
     </ul>
     </div>

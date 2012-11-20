@@ -12,6 +12,16 @@ class CategoriesController extends AppController {
  *
  * @return void
  */
+    public function isAuthorized($user) {
+    
+        if (in_array($this->action, array('delete', 'add', 'edit', 'index'))) {
+        
+            if (isset($user['role']) && ($user['role'] === 'admin')) {
+        return false;
+     } } 
+    return parent::isAuthorized($user);
+    }
+    
 	public function index() {
 		$this->Category->recursive = 0;
 		$this->set('categories', $this->paginate());

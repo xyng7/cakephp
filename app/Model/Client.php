@@ -14,6 +14,7 @@ class Client extends AppModel {
      *
      * @var array
      */
+    var $displayField = 'first_name';
     public $validate = array(
         //first name field
         'first_name' => array(
@@ -66,10 +67,10 @@ class Client extends AppModel {
                 'rule' => array('notempty'),
                 'message' => 'Enter Phone Number'
             ),
-            //rule 2 - must be 10 digit start with '02,03,04,07,08' 
+            //rule 2 - must be 10 digit start with '0' 
             'phoneRule-2' => array(
                 'rule' => '/^(?:\+?61|0)[2-478](?:[ -]?[0-9]){8}$/',
-                'message' => '10-digit required starting with either 02 to 04 and 07 to 08, e.g. 0212345678',
+                'message' => '10-digit required',
                 'last' => true, // Stop validation after this rule
             ),
         ),
@@ -80,10 +81,10 @@ class Client extends AppModel {
                 'rule' => array('notempty'),
                 'message' => 'Enter Phone Number'
             ),
-            //rule 2 - must be 10 digit start with '04' 
+            //rule 2 - must be 10 digit start with '0' 
             'mobileRule-2' => array(
-                'rule' => '/^(?:\+?61|0)4\)?(?:[ -]?[0-9]){7}[0-9]$/',
-                'message' => '10-digit required starting with 04, e.g. 0412345678',
+                'rule' => '/^(?:\+?61|0)[2-478](?:[ -]?[0-9]){8}$/',
+                'message' => '10-digit required',
                 'last' => true,
             ),
         ),
@@ -137,7 +138,7 @@ class Client extends AppModel {
      *
      * @var array
      */
-    public $belongsTo = array(
+     public $belongsTo = array(
         'User' => array(
             'className' => 'User',
             'foreignKey' => 'user_id',
@@ -146,5 +147,20 @@ class Client extends AppModel {
             'order' => ''
         )
     );
+    public $hasMany = array(
+		'Program' => array(
+			'className' => 'Program',
+			'foreignKey' => 'client_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		)
+	);
 
 }

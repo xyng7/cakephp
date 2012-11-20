@@ -14,13 +14,27 @@
 	<tr>
                 <td><?php echo h($user['User']['username']); ?>&nbsp;</td>
                 <td><?php echo h($user['User']['role']); ?>&nbsp;</td>
-		<td><?php echo h($user['User']['created']); ?>&nbsp;</td>
-		<td><?php echo h($user['User']['modified']); ?>&nbsp;</td>
-                <td><?php echo h($user['User']['last_login']); ?>&nbsp;</td>
-		<td class="actions">
+		<td><?php echo $this->Time->format('d-m-Y, H:i:s', h($user['User']['created'])); ?>&nbsp;</td>
+		<td><?php echo $this->Time->format('d-m-Y, H:i:s', h($user['User']['modified'])); ?>&nbsp;</td>
+                <td>
+                    
+                    <?php if($user['User']['last_login'] != null) 
+                                { 
+                                echo $this->Time->format('d-m-Y, H:i:s', h($user['User']['last_login']));
+                                } 
+                                else 
+                                { 
+                                echo null; 
+                                }
+                    ?>
+                </td>
+                <td>
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $user['User']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $user['User']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $user['User']['id']), null, __('Are you sure you want to delete # %s?', $user['User']['username'])); ?>
+			<?php if (AuthComponent::user('role') === 'superadmin')
+                        {
+                        
+                        echo $this->Html->link(__('Edit'), array('action' => 'edit', $user['User']['id'])); echo __(' ');
+			echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $user['User']['id']), null, __('Are you sure you want to delete # %s?', $user['User']['username'])); }?>
 		</td>
 	</tr>
 <?php endforeach; ?>
@@ -43,6 +57,13 @@
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('New Admin'), array('action' => 'add')); ?></li>
+		<li><?php if (AuthComponent::user('role') === 'superadmin')
+                        {
+                            echo $this->Html->link(__('New Admin'), array('action' => 'add')); }
+                          else {
+                            echo $this->Html->link(__('Change my password'), array('action' => 'editmyown', AuthComponent::user('id')));
+                          }
+                                
+                            ?></li>
 	</ul>
 </div>

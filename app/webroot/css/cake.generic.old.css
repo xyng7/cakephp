@@ -23,7 +23,8 @@
 
 /** General Style Info **/
 body {
-	background: #153E7E; /** #003d4c; **/
+	/* background: #003d4c; */
+        background: #153E7E;
 	color: #fff;
 	font-family:'lucida grande',verdana,helvetica,arial,sans-serif;
 	font-size:90%;
@@ -78,37 +79,33 @@ p {
 }
 
 #header{
-            position:relative;
-            left:700px;
-            top:10px;
 	padding: 10px 20px;
 }
 #header h1 {
 	line-height:20px;
 	background: #153E7E url('../img/cake.icon.png') no-repeat left;
-	color: #FFF;
+	color: #fff;
 	padding: 0px 30px;
 }
 #header h1 a {
-	color: #FFF;
+	color: #fff;
 	background: #003d4c;
 	font-weight: normal;
 	text-decoration: none;
 }
 #header h1 a:hover {
-	color: #FFF;
+	color: #fff;
 	background: #003d4c;
 	text-decoration: underline;
 }
 #content{
-	background: #FFF;
+	background: #fff;
 	clear: both;
 	color: #333;
 	padding: 10px 20px 40px 20px;
 	overflow: auto;
 }
 #footer {
-              background: #008888;
 	clear: both;
 	padding: 6px 10px;
 	text-align: right;

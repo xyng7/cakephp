@@ -4,7 +4,6 @@
 		<legend><?php echo __('Add Category'); ?></legend>
 	<?php
 		echo $this->Form->input('category');
-		echo $this->Form->input('Exercise',array('type' => 'select','multiple' => 'checkbox'));
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
@@ -14,7 +13,5 @@
 	<ul>
 
 		<li><?php echo $this->Html->link(__('List Categories'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Exercises'), array('controller' => 'exercises', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Exercise'), array('controller' => 'exercises', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

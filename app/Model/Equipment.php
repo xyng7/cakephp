@@ -20,20 +20,26 @@ var $displayField = 'equipment';
  *
  * @var array
  */
-                
+	
        public $validate = array(
 		'equipment' => array(
-                    //rule 1 - cannot be empty
-			'equipmentRule-1' => array(
+			'notempty' => array(
 				'rule' => array('notempty'),
-				'message' => 'Enter Equipment Name',
-                            ),
-                   //rule 2 - must be in alphabet
-                        'equipmentRule-2' => array(
-                                'rule' => '/[A-Za-z]/',
-                                'message' => 'Invalid Name',
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
-		),
+                       //is unique
+                        'unique' => array(
+                                'rule' => array('isUnique'),
+                                'message' => 'Equipment must be unique'),
+		),  
+             
+             
+            
+       
 	);
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed

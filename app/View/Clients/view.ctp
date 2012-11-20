@@ -18,7 +18,7 @@
 		</dd>
 		<dt><?php echo __('Dob'); ?></dt>
 		<dd>
-			<?php echo h($client['Client']['dob']); ?>
+			<?php echo $this->Time->format('d-m-Y', h($client['Client']['dob'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Phone'); ?></dt>
@@ -41,7 +41,7 @@
 			<?php echo h($client['Client']['suburb']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Postcode'); ?></dt>
+		<dt><?php echo __('Postal'); ?></dt>
 		<dd>
 			<?php echo h($client['Client']['postal']); ?>
 			&nbsp;

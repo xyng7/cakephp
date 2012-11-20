@@ -13,22 +13,22 @@ class BodyPart extends AppModel {
  * @var array
  */
 var $displayField = 'body_part';
-    
-           public $validate = array(
+    public $validate = array(
 		'body_part' => array(
-                    //rule 1 - cannot be empty
-			'bodypartRule-1' => array(
+			'notempty' => array(
 				'rule' => array('notempty'),
-				'message' => 'Enter Body Part',
-                            ),
-                   //rule 2 - must be in alphabet
-                        'bodypartRule-2' => array(
-                                'rule' => '/[A-Za-z]/',
-                                'message' => 'Invalid Name',
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
+                        //is unique
+                        'unique' => array(
+                                'rule' => array('isUnique'),
+                                'message' => 'Body part must be unique'),
 		),
 	);
-           
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 

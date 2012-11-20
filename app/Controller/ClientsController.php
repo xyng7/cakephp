@@ -41,44 +41,30 @@ class ClientsController extends AppController {
 		if ($this->request->is('post')) {
 			
                     $this->Client->create();
-                 $this->loadModel('User');
-                             $this->User->create();
-                            
-                   
-                if ($this->Client->save(array(
-                    
-                'first_name' => $this->request->data('Client.first_name'),
-                'last_name' => $this->request->data('Client.last_name'),
-		'email' => $this->request->data('Client.email'),
-		'dob' => $this->request->data('Client.dob'),
-		'phone' => $this->request->data('Client.phone'),
-		'mobile' => $this->request->data('Client.mobile'),
-		'address' => $this->request->data('Client.address'),
-		'suburb' => $this->request->data('Client.suburb'),
-		'postal' => $this->request->data('Client.postal')
-               
-                                 
-                 )) &&
-                        //create client login user
-                        $this->User->save(array('username' => $this->request->data('Client.email'),
-                                              'password' =>  $this->request->data('Client.last_name'),
-                                              'role' => 'client',
-                                              'client_id' => $this->Client->id )) 
-                        &&
+                    $this->loadModel('User');
+                    $this->User->create();
+     
+                    if ($this->Client->save($this->request->data) && $this->User->save(
+                                array(
+                                        'username' => $this->request->data('Client.email'),
+                                        'password' =>  implode($this->request->data('Client.dob')),
+                                        'role' => 'client',
+                                        'client_id' => $this->Client->id ))) 
                         
-                        $this->Client->saveField('user_id', $this->User->id)
-                        
-                        ) {
+                        {
                   
                     //Send client email (with login details) function goes here (build 2)
+                    $this->sendEmailConfirmation($this->request->data('Client.first_name'), $this->request->data('Client.last_name'), $this->request->data('Client.email'), implode($this->request->data('Client.dob')));
+               
                     
                                 $this->Session->setFlash(__('The client has been saved'));
 				$this->redirect(array('action' => 'index'));
+                                
 			} else {
 				$this->Session->setFlash(__('The client could not be saved. Please, try again.'));
-			}
-		}
-	}
+			//debug($this->User->data);
+                                
+                        }}}
 
 /**
  * edit method
