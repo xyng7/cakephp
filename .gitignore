@@ -1,6 +1,0 @@
-/app/tmp/
-app/tmp/
-/app/tmp/*
-app/tmp/cache/persistent/myapp_cake_core_file_map
-
-app/tmp/cache/persistent/myapp_cake_core_method_cache
