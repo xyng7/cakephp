@@ -12,15 +12,95 @@ class ClientpagesController extends AppController {
  *
  * @return void
  */
-public function isAuthorized($user) {
+public function client() {     
+    $this->layout = 'clientsdefault';
+        $this->loadModel('Client');
+        $this->loadModel('Program');
+        $client_id = AuthComponent::user('client_id');
+        
+        $this->Client->id = $client_id;
+		if (!$this->Client->exists()) {
+			throw new NotFoundException(__('Invalid client'));
+		}
+}
+                
+        public function isAuthorized($user) {
    
         return true;
 
-}
+        }
+        
+        public function clientdetails() {
+        $this->layout = 'clientsdefault'; //load clientsdefault layout
+        $this->loadModel('Client');
+        
+        $id = AuthComponent::user('client_id');
+        $this->Client->id = $id;
+		if (!$this->Client->exists()) {
+			throw new NotFoundException(__('Invalid client'));
+		}
+		$this->set('client', $this->Client->read(null, $id));
+        }
     
         public function index() {
-        $this->layout = 'clientsdefault';  //dont use default layout with menu icons
+	$this->clientdetails();
+                
+        
+        }
+        
+        public function viewProgram($id){
+        $this->clientdetails();
+        $this->loadModel('Program');
+        
 		
-	}
-
+                $this->Program->id = $id;
+		if (!$this->Program->exists()) {
+			throw new NotFoundException(__('Invalid program'));
+		}
+                $this->set('program', $this->Program->read(null, $id));
+       }
+               
+        public function changePassword($id = null) {
+        $this->clientdetails();
+        $this->loadModel('User');
+        $this->User->id = $id;
+       
+        if (!$this->User->exists() || AuthComponent::user('id') != $id) {   
+            throw new NotFoundException(__('Invalid user'));
+            
+        }
+        if (AuthComponent::password($this->request->data('User.password')) == AuthComponent::password($this->request->data('User.password_confirm')))
+        {
+            
+        if ($this->request->is('post') || $this->request->is('put')) {
+          
+            if ($this->User->save($this->request->data)) {
+                $this->Session->setFlash(__('Password change successful'));
+                $this->redirect(array('action' => 'index'));
+            } 
+            else {
+                $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
+            }
+        } else {
+            $this->request->data = $this->User->read(null, $id);
+            unset($this->request->data['User']['password']);
+        }
+        }
+        else {
+            $this->Session->setFlash(__('Password do not match, please try again.'));
+        }
+        
+        }
+        
+        public function viewExercise($id = null, $progid) {
+		$this->clientdetails();
+                $this->loadModel('Exercise');
+                $this->Exercise->id = $id;
+                
+		if (!$this->Exercise->exists()) {
+			throw new NotFoundException(__('Invalid exercise'));
+		}
+                $this->set('program', $progid);
+		$this->set('exercise', $this->Exercise->read(null, $id));
+       }
 }
