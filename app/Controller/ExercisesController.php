@@ -85,6 +85,9 @@ class ExercisesController extends AppController {
 		$categories = $this->Exercise->Category->find('list');
 		$equipment = $this->Exercise->Equipment->find('list');
                 
+                $this->set('exercise_bodyparts',$this->Exercise->BodyPart->find('all'));
+                
+                
 		$this->set(compact('bodyParts', 'categories', 'equipment'));
              
                
