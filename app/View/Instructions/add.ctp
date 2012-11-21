@@ -3,7 +3,7 @@
 	<fieldset>
 		<legend><?php echo __('Add Instruction'); ?></legend>
 	<?php
-		echo $this->Form->input('instruction');
+		echo $this->Form->input('instruction', array('type' => 'textarea'));
                 echo __('Upload Image');
 		echo $this->Form->file('image', array('label' =>'','size'=>'50'));
 	?>

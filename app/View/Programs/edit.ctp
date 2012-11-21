@@ -8,7 +8,7 @@
 		echo $this->Form->input('name');
 		echo $this->Form->input('start_date', array('dateFormat' => 'DMY', 'minYear' =>date('Y'),'maxYear'=>date('Y')+50));
 		echo $this->Form->input('end_date', array('dateFormat' => 'DMY', 'minYear' =>date('Y'),'maxYear'=>date('Y')+50));
-		echo $this->Form->input('Exercise');
+		echo $this->Form->input('Exercise', array('type' => 'select','multiple' => 'checkbox'));
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
