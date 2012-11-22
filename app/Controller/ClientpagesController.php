@@ -92,7 +92,7 @@ public function client() {
         
         }
         
-        public function viewExercise($id = null, $progid) {
+        public function viewExercise($id = null) {
 		$this->clientdetails();
                 $this->loadModel('Exercise');
                 $this->Exercise->id = $id;
@@ -100,7 +100,7 @@ public function client() {
 		if (!$this->Exercise->exists()) {
 			throw new NotFoundException(__('Invalid exercise'));
 		}
-                $this->set('program', $progid);
+                //$this->set('program', $progid);
 		$this->set('exercise', $this->Exercise->read(null, $id));
        }
 }

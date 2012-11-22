@@ -4,7 +4,6 @@
 		<legend><?php echo __('Edit My Details'); ?></legend>
 	<?php
 		echo $this->Form->input('id');
-		echo $this->Form->input('username');
                 echo $this->Form->input('password');
 		echo $this->Form->input('password_confirm', array('type' => 'password'));
         
@@ -15,6 +14,6 @@
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('List Users'), array('action' => 'index')); ?></li>
+		<li><?php echo $this->Html->link(__('Back'), array('action' => 'index')); ?></li>
 	</ul>
 </div>

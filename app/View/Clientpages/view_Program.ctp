@@ -35,7 +35,7 @@
                         <td><?php echo $i; ?></td>
 			<td><?php echo $exercise['name']; ?></td>
 			<td>
-				<?php echo $this->Html->link(__('View'), array('action' => 'viewExercise', $exercise['id'])); ?>
+				<?php echo $this->Html->link(__('Instructions'), array('action' => 'viewExercise', $exercise['id'])); ?>
 				
 			</td>
 		</tr>

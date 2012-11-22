@@ -37,7 +37,7 @@
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
         <ul>
-        <li><?php echo $this->Html->link(__('Change my password'), array('action' => 'editmyown', AuthComponent::user('id'))); ?> </li>
+        <li><?php echo $this->Html->link(__('Change Password'), array('action' => 'changePassword', AuthComponent::user('id'))); ?> </li>
         <li><?php echo $this->Html->link(__('Logout'), array('controller' => 'users', 'action' => 'logout')); ?> </li>
         </ul>  
 </div>
