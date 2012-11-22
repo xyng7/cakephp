@@ -18,65 +18,69 @@ echo $this->Html->script(array('jquery-1.8.3', 'jquery.fastLiveFilter'));
 
         <input id="search_input" placeholder="Type to filter">
 
-        <table cellpadding = "0" >
-            <!-- //table header
+        <table border="1" cellpadding = "0" >            
             <tr>
-                <td>Body Part</td>
-                <td>Category</td>
-                <td>Equipment</td>
-            </tr>
-            -->
-            <tr>
-                <td><ul id="search_list">
+                <th>Body Part</th>
+                <td>
+                    <ul id="search_list">
                         <?php
                         //for loop for body parts
                         foreach ($exercise_bodyparts as $eb) {
-                            echo 
-                            "<li>" . $eb['BodyPart']['body_part'] . "</li>";
+                            echo $this->Form->input('BodyPart.BodyPart.', array(
+                                'type' => 'checkbox',
+                                'label' => $eb['BodyPart']['body_part'],
+                                'value' => $eb['BodyPart']['id'],
+                                'before' => '<li>',
+                                'after' => '</li>',
+                                'hiddenField' => false,
+                                'div' => false
+                            ));
                         }
                         ?>
+                    </ul>
+                </td>
 
-                <!-- <li><?php
-                        echo $this->Form->input('BodyPart', array(
-                            'multiple' => 'checkbox'));
-                        ?></li>
-                    </ul></td>
-                    
-                <ul id="search_list">
-                        <li><?php
-                        echo $this->Form->input('Category', array(
-                            'multiple' => 'checkbox'));
-                        ?></li>
-                    </ul></td>
-                <td><ul id="search_list">
-                        <li><?php
-                        echo $this->Form->input('Equipment', array(
-                            'multiple' => 'checkbox'));
-                        ?></li>
-                    </ul></td>-->
+                <td>                <th>Category</th>
+                    <ul id="search_list">
+                        <?php
+                        //for loop for categories
+                        foreach ($exercise_categories as $ec) {
+                            echo $this->Form->input('Category.Category.', array(
+                                'type' => 'checkbox',
+                                'label' => $ec['Category']['category'],
+                                'value' => $ec['Category']['id'],
+                                'before' => '<li>',
+                                'after' => '</li>',
+                                'hiddenField' => false,
+                                'div' => false
+                            ));
+                        }
+                        ?>
+                    </ul>
+                </td>
+
+                <td>                <th>Equipment</th>
+                    <ul id="search_list">
+                <?php
+                //for loop for equipment
+                foreach ($exercise_equipment as $ee) {
+                    echo $this->Form->input('Equipment.Equipment.', array(
+                        'type' => 'checkbox',
+                        'label' => $ee['Equipment']['equipment'],
+                        'value' => $ee['Equipment']['id'],
+                        'before' => '<li>',
+                        'after' => '</li>',
+                        'hiddenField' => false,
+                        'div' => false
+                    ));
+                }
+                ?>
+                </ul>
+                </td>
             </tr>
-
-
-
-            <!--<tr>//initial listing
-
-                <td><?php
-                        echo $this->Form->input('BodyPart', array(
-                            'multiple' => 'checkbox'));
-                        ?></td>
-                <td> <?php
-                        echo $this->Form->input('Category', array(
-                            'multiple' => 'checkbox'));
-                        ?></td>
-                <td> <?php
-                        echo $this->Form->input('Equipment', array(
-                            'multiple' => 'checkbox'));
-                        ?> </td>
-            </tr>-->
-
         </table>
 
-<?php echo $this->Form->end(__('Submit')); ?>
+        <?php echo $this->Form->end(__('Submit')); ?>
     </fieldset>
 
 </div>

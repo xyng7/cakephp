@@ -67,7 +67,7 @@ class ExercisesController extends AppController {
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->Exercise->create();
-                       // debug($this->data);
+                       debug($this->data);
                        // $this->request->data['bodypart']['bodypart'] = array(); 
                        // foreach($this->data['bodypart'.'checkbox'] as $k=>$v) 
                        // { 
@@ -87,7 +87,10 @@ class ExercisesController extends AppController {
                 
                 //exercise
                 $this->set('exercise_bodyparts',$this->Exercise->BodyPart->find('all'));
-
+                //categories
+                $this->set('exercise_categories',$this->Exercise->Category->find('all'));
+                //equipment
+                $this->set('exercise_equipment',$this->Exercise->Equipment->find('all'));
                 
                 
 		$this->set(compact('bodyParts', 'categories', 'equipment'));
