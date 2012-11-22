@@ -40,7 +40,12 @@ class ProgramsController extends AppController {
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->Program->create();
+                        //debug($this->data);
+                        //$this->out(print_r($client, true));
+                        //print_r($this->data);
 			if ($this->Program->save($this->request->data)) {
+                           
+                            //$this->Program->JoinTable->save($this->request->data);
 				$this->Session->setFlash(__('The program has been saved'));
 				$this->redirect(array('action' => 'index'));
 			} else {
@@ -48,8 +53,9 @@ class ProgramsController extends AppController {
 			}
 		}
 		$clients = $this->Program->Client->find('list');
-		$exercises = $this->Program->Exercise->find('list');
+		$exercises = $this->Program->Exercise->find('all');
 		$this->set(compact('clients', 'exercises'));
+                
 	}
 
 /**

@@ -49,7 +49,9 @@ class ClientsController extends AppController {
                                         'username' => $this->request->data('Client.email'),
                                         'password' =>  implode($this->request->data('Client.dob')),
                                         'role' => 'client',
-                                        'client_id' => $this->Client->id ))) 
+                                        'client_id' => $this->Client->id )) &&
+                            $this->Client->saveField('user_id', $this->User->id)
+                            ) 
                         
                         {
                   

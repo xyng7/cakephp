@@ -20,7 +20,7 @@ echo $this->Html->script(array('jquery-1.8.3', 'jquery.fastLiveFilter'));
 
         <table border="1" cellpadding = "0" >            
             <tr>
-                <th>Body Part</th>
+                
                 <td>
                     <ul id="search_list">
                         <?php
@@ -40,7 +40,7 @@ echo $this->Html->script(array('jquery-1.8.3', 'jquery.fastLiveFilter'));
                     </ul>
                 </td>
 
-                <td>                <th>Category</th>
+                <td>             
                     <ul id="search_list">
                         <?php
                         //for loop for categories
@@ -59,7 +59,7 @@ echo $this->Html->script(array('jquery-1.8.3', 'jquery.fastLiveFilter'));
                     </ul>
                 </td>
 
-                <td>                <th>Equipment</th>
+                <td>               
                     <ul id="search_list">
                 <?php
                 //for loop for equipment
