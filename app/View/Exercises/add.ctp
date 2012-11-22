@@ -2,6 +2,11 @@
 <?php
 echo $this->Html->script(array('jquery-1.8.3', 'jquery.fastLiveFilter'));
 ?>
+<style>
+    label{
+        display:inline
+    }
+</style>
 <script>
     $(function() {
         $('#search_input').fastLiveFilter('#search_list');
@@ -17,17 +22,15 @@ echo $this->Html->script(array('jquery-1.8.3', 'jquery.fastLiveFilter'));
         <?php echo $this->Form->input('videos', array('label' => 'Video: enter Youtube embedded link below')); ?>
 
         <input id="search_input" placeholder="Type to filter">
-
-        <table border="1" cellpadding = "0" >            
-            <tr>
-                <th>Body Part</th>
-                <th>Category</th>
-                <th>Equipment</th>
-            </tr>
-            
-            <tr>
-                <td>
-                    <ul id="search_list">
+        <ul id="search_list" style="list-style-type: none">
+            <table border="0" cellpadding = "0" >            
+                <tr>
+                    <th>Body Part</th>
+                    <th>Category</th>
+                    <th>Equipment</th>
+                </tr>
+                <tr>
+                    <td>
                         <?php
                         //for loop for body parts
                         foreach ($exercise_bodyparts as $eb) {
@@ -38,15 +41,14 @@ echo $this->Html->script(array('jquery-1.8.3', 'jquery.fastLiveFilter'));
                                 'before' => '<li>',
                                 'after' => '</li>',
                                 'hiddenField' => false,
-                                'div' => false
+                                'div' => false,
+                                'style'=>'display:inline'
                             ));
                         }
                         ?>
-                    </ul>
-                </td>
-
-                <td>                
-                    <ul id="search_list">
+                        </ul>
+                    </td>
+                    <td>
                         <?php
                         //for loop for categories
                         foreach ($exercise_categories as $ec) {
@@ -61,29 +63,26 @@ echo $this->Html->script(array('jquery-1.8.3', 'jquery.fastLiveFilter'));
                             ));
                         }
                         ?>
-                    </ul>
-                </td>
-
-            <td>                
-                <ul id="search_list">
-                    <?php
-                    //for loop for equipment
-                    foreach ($exercise_equipment as $ee) {
-                        echo $this->Form->input('Equipment.Equipment.', array(
-                            'type' => 'checkbox',
-                            'label' => $ee['Equipment']['equipment'],
-                            'value' => $ee['Equipment']['id'],
-                            'before' => '<li>',
-                            'after' => '</li>',
-                            'hiddenField' => false,
-                            'div' => false
-                        ));
-                    }
-                    ?>
-                </ul>
-            </td>
-            </tr>
-        </table>
+                    </td>
+                    <td>
+                        <?php
+                        //for loop for equipment
+                        foreach ($exercise_equipment as $ee) {
+                            echo $this->Form->input('Equipment.Equipment.', array(
+                                'type' => 'checkbox',
+                                'label' => $ee['Equipment']['equipment'],
+                                'value' => $ee['Equipment']['id'],
+                                'before' => '<li>',
+                                'after' => '</li>',
+                                'hiddenField' => false,
+                                'div' => false
+                            ));
+                        }
+                        ?>
+                    </td>
+                </tr>
+            </table>
+        </ul>
 
         <?php echo $this->Form->end(__('Submit')); ?>
     </fieldset>
