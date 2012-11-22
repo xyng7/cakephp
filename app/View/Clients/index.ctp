@@ -1,5 +1,16 @@
-<div class="clients index">
-	<h2><?php echo __('Clients'); ?></h2>
+<div class="actions">	
+	<h4><?php echo __('Clients'); ?></h4>
+</div>
+
+<div class="actions">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <ul>
+		<li><?php echo $this->Html->link(__('New Client'), array('action' => 'add')); ?></li>
+	</ul>
+</div>
+
+<div>
+	
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('first_name'); ?></th>
@@ -48,9 +59,4 @@
 	?>
 	</div>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('New Client'), array('action' => 'add')); ?></li>
-	</ul>
-</div>
+
