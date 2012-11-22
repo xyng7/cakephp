@@ -21,6 +21,11 @@ echo $this->Html->script(array('jquery-1.8.3', 'jquery.fastLiveFilter'));
         <table border="1" cellpadding = "0" >            
             <tr>
                 <th>Body Part</th>
+                <th>Category</th>
+                <th>Equipment</th>
+            </tr>
+            
+            <tr>
                 <td>
                     <ul id="search_list">
                         <?php
@@ -40,7 +45,7 @@ echo $this->Html->script(array('jquery-1.8.3', 'jquery.fastLiveFilter'));
                     </ul>
                 </td>
 
-                <td>                <th>Category</th>
+                <td>                
                     <ul id="search_list">
                         <?php
                         //for loop for categories
@@ -59,24 +64,24 @@ echo $this->Html->script(array('jquery-1.8.3', 'jquery.fastLiveFilter'));
                     </ul>
                 </td>
 
-                <td>                <th>Equipment</th>
-                    <ul id="search_list">
-                <?php
-                //for loop for equipment
-                foreach ($exercise_equipment as $ee) {
-                    echo $this->Form->input('Equipment.Equipment.', array(
-                        'type' => 'checkbox',
-                        'label' => $ee['Equipment']['equipment'],
-                        'value' => $ee['Equipment']['id'],
-                        'before' => '<li>',
-                        'after' => '</li>',
-                        'hiddenField' => false,
-                        'div' => false
-                    ));
-                }
-                ?>
+            <td>                
+                <ul id="search_list">
+                    <?php
+                    //for loop for equipment
+                    foreach ($exercise_equipment as $ee) {
+                        echo $this->Form->input('Equipment.Equipment.', array(
+                            'type' => 'checkbox',
+                            'label' => $ee['Equipment']['equipment'],
+                            'value' => $ee['Equipment']['id'],
+                            'before' => '<li>',
+                            'after' => '</li>',
+                            'hiddenField' => false,
+                            'div' => false
+                        ));
+                    }
+                    ?>
                 </ul>
-                </td>
+            </td>
             </tr>
         </table>
 
