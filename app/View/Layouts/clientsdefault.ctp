@@ -37,7 +37,7 @@
 <body>
 	<div id="container">
 		<div id="header">
-			<h1><?php echo __('Welcome, ' .AuthComponent::user('username'). '!'); ?></h1>
+			<h1><?php echo __('Welcome, ' .$client['Client']['first_name']. ' ' .$client['Client']['last_name'].  '!'); ?></h1>
 		</div>
 		<div id="content">
 
@@ -46,7 +46,7 @@
 			<?php echo $this->fetch('content'); ?>
 		</div>
 		<div id="footer">
-		
+			
                     
 		</div>
 	</div>

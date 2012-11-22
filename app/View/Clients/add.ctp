@@ -14,7 +14,7 @@
 		echo $this->Form->input('postal', array ('label' => 'Postcode'));
 	?>
 	</fieldset>
-     <h4><?php echo __('Adding a client will automatically generate client username (as email) and password (as last name)'); ?></h4>
+     <h4><?php echo __('Adding a client will automatically generate client username (as email) and password (as date)'); ?></h4>
 <?php echo $this->Form->end(__('Submit')); ?>
 </div>
 <div class="actions">
