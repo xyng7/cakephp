@@ -62,15 +62,9 @@
               </table>
 		
 	</fieldset>
-<<<<<<< HEAD
-<<<<<<< HEAD
-     <h4><?php echo __('Adding a client will automatically generate client username (as email) and password (as date)'); ?></h4>
-=======
-     <h6><?php echo __('Adding a client will automatically generate client username (as email) and password (as last name)'); ?></h6>
->>>>>>> 4cba349
-=======
-     <h6><?php echo __('Adding a client will automatically generate client username (as email) and password (as last name)'); ?></h6>
->>>>>>> 4cba349
+
+     <h6><?php echo __('Adding a client will automatically generate client username (as email) and password (as date)'); ?></h6>
+
 <?php echo $this->Form->end(__('Submit')); ?>
 </div>
 <div class="actions">
