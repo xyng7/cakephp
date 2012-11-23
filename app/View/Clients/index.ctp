@@ -67,6 +67,12 @@
 	));
 	?>	</p>
 >>>>>>> 4cba349
+    <div class="actions">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <ul>
+            <li><?php echo $this->Html->link(__('New Client'), array('action' => 'add')); ?></li>
+        </ul>
+    </div>
 
     <h2><?php echo __('Clients'); ?></h2>
     <table id="js-datatable" cellpadding="0" cellspacing="0">
@@ -110,6 +116,9 @@
         echo $this->Paginator->counter(array(
             'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
         ));
+        //echo $this->Paginator->counter(array(
+            //'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
+        //));
         ?>	</p>
 
     <div class="paging">

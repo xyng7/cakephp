@@ -84,6 +84,7 @@ $homedir = __d('cake_dev', 'CakePHP: the rapid development php framework :D');
 =======
 >>>>>>> 4cba349
         <?php
+        echo $this->Html->script('jquery-1.8.3.min');
         echo $this->Html->meta('icon');
         echo $this->Html->css('cake.generic');
         echo $this->fetch('meta');
