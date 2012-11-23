@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <div class="clients index">
     <?php
     echo $this->Html->script('datatables/jquery.dataTables.min'); #no need to specify js directory and extension
@@ -11,6 +12,8 @@
            });
     </script>
 =======
+=======
+>>>>>>> 4cba349
 <div class="actions">	
 	<h4><?php echo __('Clients'); ?></h4>
 </div>
@@ -118,12 +121,16 @@
     </div>
 </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <div class="actions">
     <h3><?php echo __('Actions'); ?></h3>
     <ul>
         <li><?php echo $this->Html->link(__('New Client'), array('action' => 'add')); ?></li>
     </ul>
 </div>
+=======
+
+>>>>>>> 4cba349
 =======
 
 >>>>>>> 4cba349

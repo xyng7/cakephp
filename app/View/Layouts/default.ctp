@@ -30,6 +30,7 @@ $homedir = __d('cake_dev', 'CakePHP: the rapid development php framework :D');
 
         </title>
 <<<<<<< HEAD
+<<<<<<< HEAD
 	<?php
                 echo $this->Html->script('jquery-1.8.3.min');
 		echo $this->Html->meta('icon');
@@ -80,6 +81,8 @@ $homedir = __d('cake_dev', 'CakePHP: the rapid development php framework :D');
         
 </body>
 =======
+=======
+>>>>>>> 4cba349
         <?php
         echo $this->Html->meta('icon');
         echo $this->Html->css('cake.generic');
@@ -163,6 +166,9 @@ $homedir = __d('cake_dev', 'CakePHP: the rapid development php framework :D');
         <!-- End -->
 
     </body>
+<<<<<<< HEAD
+>>>>>>> 4cba349
+=======
 >>>>>>> 4cba349
 </html>
 
