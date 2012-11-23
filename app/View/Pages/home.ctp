@@ -30,10 +30,6 @@ App::uses('Debugger', 'Utility');
                 <li><?php echo $this->Html->link(__('Logout'), array('controller' => 'users', 'action' => 'logout')); ?> </li>
 	</ul>
 </div>
-
-   <?php 
-    echo $this->Html->image('lsbtlogo.jpeg', array('alt'=>'Lsbt logo', 'border'=>'0')); 
-    echo "<p />"; 
-    ?> 
+ 
 
  

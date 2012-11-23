@@ -2,19 +2,71 @@
 <?php echo $this->Form->create('Client'); ?>
 	<fieldset>
 		<legend><?php echo __('Add Client'); ?></legend>
-	<?php
-		echo $this->Form->input('first_name');
-		echo $this->Form->input('last_name');
-		echo $this->Form->input('email');
-		echo $this->Form->input('dob', array('dateFormat' => 'DMY', 'minYear' =>date('Y')-100,'maxYear'=>date('Y')));
-		echo $this->Form->input('phone');
-		echo $this->Form->input('mobile');
-		echo $this->Form->input('address');
-		echo $this->Form->input('suburb');
-		echo $this->Form->input('postal', array ('label' => 'Postcode'));
-	?>
+	
+	<table cellpadding = "0" cellspacing = "0">          
+                    <tr>
+                      <th>
+                    <?php 
+                                echo $this->Form->input('first_name'); ?>
+                      </th>
+                      <th>
+                    <?php
+                                echo $this->Form->input('last_name');?>
+                      </th>                     
+                      <th>
+                    <?php
+                    echo $this->Form->input('dob', array('dateFormat' => 'DMY', 'minYear' =>date('Y')-100,'maxYear'=>date('Y')));
+                    ?>
+                      </th>
+                  </tr>
+              </table>
+                <table cellpadding = "0" cellspacing = "0">  
+                <tr>
+                    <th>
+                    <?php
+                    echo $this->Form->input('email');?>
+                      </th>
+                </tr>
+                </table>
+               <table cellpadding = "0" cellspacing = "0">    
+                   <tr>
+                      <th>
+                    <?php 
+                                echo $this->Form->input('phone'); ?>
+                      </th>
+                      <th>
+                    <?php
+                                echo $this->Form->input('mobile');?>
+                      </th>                     
+                  </tr>
+                   <tr>
+                      <th>
+                    <?php 
+                                echo $this->Form->input('suburb'); ?>
+                      </th>
+                      <th>
+                    <?php
+                                echo $this->Form->input('postal', array ('label' => 'Postcode'));
+                ?>
+                      </th>                     
+                  </tr>
+               </table>
+                  <table cellpadding = "0" cellspacing = "0">  
+                  <tr>
+                  <th>
+                <?php		
+		echo $this->Form->input('address');		
+                ?>
+                  </th>
+              </tr>
+              </table>
+		
 	</fieldset>
+<<<<<<< HEAD
      <h4><?php echo __('Adding a client will automatically generate client username (as email) and password (as date)'); ?></h4>
+=======
+     <h6><?php echo __('Adding a client will automatically generate client username (as email) and password (as last name)'); ?></h6>
+>>>>>>> 4cba349
 <?php echo $this->Form->end(__('Submit')); ?>
 </div>
 <div class="actions">
