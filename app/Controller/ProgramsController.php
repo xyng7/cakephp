@@ -48,7 +48,10 @@ class ProgramsController extends AppController {
 			}
 		}
 		$clients = $this->Program->Client->find('list');
-		$exercises = $this->Program->Exercise->find('list');
+		//$exercises = $this->Program->Exercise->find('list');
+
+                $this->set('program_exercise',$this->Program->Exercise->find('all'));
+                
 		$this->set(compact('clients', 'exercises'));
 	}
 
