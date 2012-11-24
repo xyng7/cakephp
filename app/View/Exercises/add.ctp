@@ -42,7 +42,7 @@ echo $this->Html->script(array('jquery-1.8.3', 'jquery.fastLiveFilter'));
                                 'after' => '</li>',
                                 'hiddenField' => false,
                                 'div' => false,
-                                'style'=>'display:inline'
+                                //'style'=>'display:inline'
                             ));
                         }
                         ?>

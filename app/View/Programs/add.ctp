@@ -37,14 +37,14 @@ echo $this->Html->script(array('jquery-1.8.3', 'jquery.fastLiveFilter'));
                         //for loop for body parts
                         foreach ($program_exercise as $pe) {
                             echo $this->Form->input('Exercise', array(
-                                'type' => 'Checkbox',
+                                'type' => 'checkbox',
                                 'label' => $pe['Exercise']['name'],
                                 'value' => $pe['Exercise']['id'],
                                 'before' => '<li>',
                                 'after' => '</li>',
                                 'hiddenField' => false,
                                 'div' => false,
-                                'style' => 'display:inline'
+                                'style'=> 'display:inline'
                             ));
                         }
                         ?>
