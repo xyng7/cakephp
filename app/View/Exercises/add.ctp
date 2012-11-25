@@ -1,7 +1,4 @@
-
-<?php
-echo $this->Html->script(array('jquery-1.8.3', 'jquery.fastLiveFilter'));
-?>
+<?php echo $this->Html->script(array('jquery-1.8.3', 'jquery.fastLiveFilter')); ?>
 <style>
     label{
         display:inline
