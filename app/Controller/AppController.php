@@ -38,8 +38,8 @@ class AppController extends Controller {
     public $components = array(
         'Session',
         'Auth' => array(
-            'loginRedirect' => array('controller' => 'pages', 'action' => 'display', 'home'),
-            
+            //'loginRedirect' => array('controller' => 'pages', 'action' => 'display', 'home'),
+            'loginRedirect' => array('controller' => 'users', 'action' => 'index'),
             'authorize' => array('Controller') 
             //No log out route set yet...
             //'logoutRedirect' => array('controller' => 'pages', 'action' => 'display', 'home')

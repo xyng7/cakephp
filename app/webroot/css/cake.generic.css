@@ -151,7 +151,7 @@ table {
 }
 th {
 	border:0;
-	border-bottom:2px solid #555;
+	border-bottom:2px solid #E8E8E8;
 	text-align: left;
 	padding:4px;
 }
@@ -170,7 +170,7 @@ table tr td {
 	padding: 6px;
 	text-align: left;
 	vertical-align: top;
-	border-bottom:1px solid #ddd;
+	border-bottom:1px solid #E8E8E8;
 }
 table tr:nth-child(even) {
 	background: #f9f9f9;
@@ -500,19 +500,23 @@ p.error em {
 
 /**  Actions  **/
 .actions ul {
+    width:135px;
 	margin: 0;
 	padding: 0;
+        overflow:visible;
 }
 .actions li {
 	margin:0 0 0.5em 0;
 	list-style-type: none;
 	white-space: nowrap;
 	padding: 0;
+        overflow:visible;
 }
 .actions ul li a {
 	font-weight: normal;
 	display: block;
 	clear: both;
+        overflow:visible;
 }
 
 /* Buttons and button links */
@@ -520,7 +524,7 @@ input[type=submit],
 .actions ul li a,
 .actions a {
 	font-weight:normal;
-	padding: 4px 8px;
+	padding: 4px 10px;
 	background: #dcdcdc;
 	background-image: -webkit-gradient(linear, left top, left bottom, from(#fefefe), to(#dcdcdc));
 	background-image: -webkit-linear-gradient(top, #fefefe, #dcdcdc);
@@ -541,12 +545,14 @@ input[type=submit],
 	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0px 1px 1px rgba(0, 0, 0, 0.2);
 	-webkit-user-select: none;
 	user-select: none;
+        overflow:visible;
 }
 .actions ul li a:hover,
 .actions a:hover {
 	background: #ededed;
 	border-color: #acacac;
 	text-decoration: none;
+        overflow:visible;
 }
 input[type=submit]:active,
 .actions ul li a:active,
@@ -564,6 +570,7 @@ input[type=submit]:active,
 	box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.3);
 	border-color: #aaa;
 	text-decoration: none;
+        overflow:visible;
 }
 
 /** Related **/

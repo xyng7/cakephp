@@ -33,7 +33,7 @@
                         <?php echo $this->Html->link(__('View'), array('action' => 'view', $user['User']['id'])); ?>
                         <?php
                         if (AuthComponent::user('role') === 'superadmin') {
-
+                            echo __(' <br> ');
                             echo $this->Html->link(__('Edit'), array('action' => 'edit', $user['User']['id']));
                             echo __(' ');
                             echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $user['User']['id']), null, __('Are you sure you want to delete # %s?', $user['User']['username']));
@@ -46,17 +46,17 @@
     </table>
     <p>
         <?php
-        /*echo $this->Paginator->counter(array(
-            'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
-        ));*/
+        /* echo $this->Paginator->counter(array(
+          'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
+          )); */
         ?>	
     </p>
 
     <div class="paging">
         <?php
-       /* echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
-        echo $this->Paginator->numbers(array('separator' => ''));
-        echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));*/
+        /* echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
+          echo $this->Paginator->numbers(array('separator' => ''));
+          echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled')); */
         ?>
     </div>
 </div>
@@ -67,10 +67,14 @@
         <li><?php
         if (AuthComponent::user('role') === 'superadmin') {
             echo $this->Html->link(__('New Admin'), array('action' => 'add'));
-        } else {
-            echo $this->Html->link(__('Change my password'), array('action' => 'editmyown', AuthComponent::user('id')));
+            ?> <li>
+                    <?php
+                    echo $this->Html->link(__('Edit Password'), array('action' => 'editmyown', AuthComponent::user('id')));
+                    ?> </li> <?php } else {
+                    ?> <li> <?php
+            echo $this->Html->link(__('Edit Password'), array('action' => 'editmyown', AuthComponent::user('id')));
         }
-        ?></li>
-        <li><?php echo $this->Html->link(__('Logout'), array('controller' => 'users', 'action' => 'logout')); ?> </li>
+                ?></li>
+        <li><?php //echo $this->Html->link(__('Logout'), array('controller' => 'users', 'action' => 'logout'));  ?> </li>
     </ul>
 </div>

@@ -17,13 +17,35 @@ echo $this->Html->script(array('jquery-1.8.3', 'jquery.fastLiveFilter'));
     <?php echo $this->Form->create('Program'); ?>
     <fieldset>
         <legend><?php echo __('Add Program'); ?></legend>
-        <?php
-        echo $this->Form->input('client_id');
-        echo $this->Form->input('name');
-        echo $this->Form->input('start_date', array('dateFormat' => 'DMY', 'minYear' => date('Y'), 'maxYear' => date('Y') + 50));
-        echo $this->Form->input('end_date', array('dateFormat' => 'DMY', 'minYear' => date('Y'), 'maxYear' => date('Y') + 50));
-        //echo $this->Form->input('Exercise', array('type' => 'select','multiple' => 'checkbox'));
-        ?>
+        <table cellpadding = "0" cellspacing = "0">          
+                    <tr>
+                      <th>
+                    <?php 
+                                echo $this->Form->input('client_id'); ?>
+                      </th>
+                      <th>
+                    <?php
+                                echo $this->Form->input('name');?>
+                      </th> 
+                      </tr>
+              </table>
+        <table cellpadding = "0" cellspacing = "0">          
+                    <tr>
+                      <th>
+                    <?php 
+                                echo $this->Form->input('start_date', array('dateFormat' => 'DMY', 'minYear' => date('Y'), 'maxYear' => date('Y') + 50)); ?>
+                      </th>
+                      <th>
+                    <?php
+                                echo $this->Form->input('end_date', array('dateFormat' => 'DMY', 'minYear' => date('Y'), 'maxYear' => date('Y') + 50));?>
+                      </th> 
+                      </tr>
+              </table>     
+<!--//        echo $this->Form->input('client_id');
+//        echo $this->Form->input('name');
+//        echo $this->Form->input('start_date', array('dateFormat' => 'DMY', 'minYear' => date('Y'), 'maxYear' => date('Y') + 50));
+//        echo $this->Form->input('end_date', array('dateFormat' => 'DMY', 'minYear' => date('Y'), 'maxYear' => date('Y') + 50));
+        echo $this->Form->input('Exercise', array('type' => 'select','multiple' => 'checkbox'));-->
 
         <input id="search_input" placeholder="Type to filter">
         <ul id="search_list" style="list-style-type: none">
