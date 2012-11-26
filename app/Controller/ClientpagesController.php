@@ -43,7 +43,7 @@ public function client() {
         }
     
         public function index() {
-	$this->clientdetails();
+	//$this->clientdetails();
                 
         
         }

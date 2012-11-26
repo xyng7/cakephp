@@ -133,7 +133,7 @@ class UsersController extends AppController {
 
     public function logout() {
         $this->Session->setFlash('Logout successful');
-    $this->redirect($this->Auth->logout());
+        $this->redirect($this->Auth->logout());
 }
     
     public function editmyown($id = null) {

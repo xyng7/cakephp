@@ -67,7 +67,7 @@ class ExercisesController extends AppController {
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->Exercise->create();
-                       debug($this->data);
+
                        // $this->request->data['bodypart']['bodypart'] = array(); 
                        // foreach($this->data['bodypart'.'checkbox'] as $k=>$v) 
                        // { 
