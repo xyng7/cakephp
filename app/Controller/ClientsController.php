@@ -34,43 +34,6 @@ class ClientsController extends AppController {
         $this->set('client', $this->Client->read(null, $id));
     }
 
-<<<<<<< HEAD
-/**
- * add method
- *
- * @return void
- */
-		public function add() {
-		if ($this->request->is('post')) {
-			
-                    $this->Client->create();
-                    $this->loadModel('User');
-                    $this->User->create();
-     
-                    if ($this->Client->save($this->request->data) && $this->User->save(
-                                array(
-                                        'username' => $this->request->data('Client.email'),
-                                        'password' =>  implode($this->request->data('Client.dob')),
-                                        'role' => 'client',
-                                        'client_id' => $this->Client->id )) &&
-                            $this->Client->saveField('user_id', $this->User->id)
-                            ) 
-                        
-                        {
-                  
-                    //Send client email (with login details) function goes here (build 2)
-                    $this->sendEmailConfirmation($this->request->data('Client.first_name'), $this->request->data('Client.last_name'), $this->request->data('Client.email'), implode($this->request->data('Client.dob')));
-               
-                    
-                                $this->Session->setFlash(__('The client has been saved'));
-				$this->redirect(array('action' => 'index'));
-                                
-			} else {
-				$this->Session->setFlash(__('The client could not be saved. Please, try again.'));
-			//debug($this->User->data);
-                                
-                        }}}
-=======
     /**
      * add method
      *
@@ -78,7 +41,6 @@ class ClientsController extends AppController {
      */
     public function add() {
         if ($this->request->is('post')) {
->>>>>>> 825852f504d58620594cc4be8b290745fa09c7dc
 
             $this->Client->create();
             $this->loadModel('User');
