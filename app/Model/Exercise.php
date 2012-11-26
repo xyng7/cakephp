@@ -137,5 +137,7 @@ class Exercise extends AppModel {
 			'insertQuery' => ''
 		)
 	);
+        
+        
 
 }

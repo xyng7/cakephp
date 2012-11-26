@@ -26,18 +26,26 @@
 	<tr>    
                 <th><?php echo __('Number'); ?></th>
 		<th><?php echo __('Name'); ?></th>
+                <th><?php echo __('Sets'); ?></th>
+                <th><?php echo __('Reps'); ?></th>
+                <th><?php echo __('Rest'); ?></th>
 		<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php
 		$i = 1;
 		foreach ($program['Exercise'] as $exercise): ?>
 		<tr>
+                        
                         <td><?php echo $i; ?></td>
 			<td><?php echo $exercise['name']; ?></td>
-			<td>
-				<?php echo $this->Html->link(__('Instructions'), array('action' => 'viewExercise', $exercise['id'])); ?>
+                        <td><?php echo $exercisesPrograms[$i - 1]['exercises_programs']['rec_sets']; ?></td>
+                        <td><?php echo $exercisesPrograms[$i - 1]['exercises_programs']['rec_reps']; ?></td>
+                        <td><?php echo $exercisesPrograms[$i - 1]['exercises_programs']['rec_res']; ?></td>
+                        <td>
+				<?php echo $this->Html->link(__('Exercise Instruction'), array('action' => 'viewExercise', $exercise['id'])); ?>
 				
 			</td>
+                        
 		</tr>
                 <?php $i++; ?>
 	<?php endforeach; ?>

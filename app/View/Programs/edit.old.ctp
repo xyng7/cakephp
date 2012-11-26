@@ -8,12 +8,8 @@
 		echo $this->Form->input('name');
 		echo $this->Form->input('start_date', array('dateFormat' => 'DMY', 'minYear' =>date('Y'),'maxYear'=>date('Y')+50));
 		echo $this->Form->input('end_date', array('dateFormat' => 'DMY', 'minYear' =>date('Y'),'maxYear'=>date('Y')+50));
-                
 		//echo $this->Form->input('Exercise', array('type' => 'select','multiple' => 'checkbox'));
-                
-                
 	?>
-                
                 <table id="search_list" cellpadding="0" cellspacing="0">
 	<tr> 
             <th>Exercise</th>
@@ -25,40 +21,16 @@
                         <tr>
                     <?php 
                     $i = 0;
-                   
                         //for loop for body parts
                         foreach ($exercises as $eb): ?> 
                            
                            
                           <td> <?php
-                            
-                           foreach ($program['Exercise'] as $existex )
-                           {
-                               if($eb['Exercise']['id'] === $existex['id'])
-                               {
-                                 // debug($existex);
-                                   $checked = true;
-                                  $setsdef = $existex['ExercisesProgram']['rec_sets'];
-                                  $repsdef = $existex['ExercisesProgram']['rec_reps'];
-                                  $resdef = $existex['ExercisesProgram']['rec_res'];
-                                  break;
-                               }
-                              else{
-                                   $checked = false;
-                                   $setsdef = 5;
-                                   $repsdef = 5;
-                                   $resdef = 5;
-                                   
-                              }
-                           }  
-                                 
-                            echo $this->Form->input("Exercise.Exercise.$i.", array(
-                                'type' => 'checkbox',
-                               
-                              // 'multiple' => 'checkbox',
+                            echo $this->Form->input('Exercise.Exercise.', array(
+                               'type' => 'checkbox',
+                               //'multiple' => 'checkbox',
                                 'label' => $eb['Exercise']['name'],
-                               'value' => $eb['Exercise']['id'],
-                               'checked'=>$checked,
+                                'value' => $eb['Exercise']['id'],
                                'before' => '<div class="checkbox">',
                               'after' => '</div>',
                                 'hiddenField' => false,
@@ -86,11 +58,11 @@
                         </td>
                         <?php endforeach; ?>
                            <td> <?php
-                            echo $this->Form->input("Exercise.Exercise.$i.program.", array(
+                            echo $this->Form->input("Exercise.program.$i.", array(
                                 'type' => 'select',
                                 'label' => 'Sets:',
                                 'options' => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17),
-                                'default' => $setsdef,
+                                'default' => 5,
                                 //'before' => " ",
                                // 'after' => '</div>',
                                 'hiddenField' => false,
@@ -98,11 +70,11 @@
                                 )); ?>
                           </td>
                          <td> <?php
-                            echo $this->Form->input("Exercise.Exercise.$i.program.", array(
+                            echo $this->Form->input("Exercise.program.$i.", array(
                                 'type' => 'select',
                                 'label' => 'Reps:',
                                 'options' => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17),
-                                'default' => $repsdef,
+                                'default' => 5,
                                 //'before' => " ",
                                // 'after' => '</div>',
                                 'hiddenField' => false,
@@ -110,18 +82,23 @@
                                 )); ?>
                           </td>
                           <td> <?php
-                            echo $this->Form->input("Exercise.Exercise.$i.program.", array(
+                            echo $this->Form->input("Exercise.program.$i.", array(
                                 'type' => 'select',
                                 'label' => 'Rest:',
                                 'options' => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17),
-                                'default' => $resdef,
+                                'default' => 5,
                                 //'before' => " ",
                                // 'after' => '</div>',
                                 'hiddenField' => false,
                                 'div' => false
                                 )); ?>
                           </td>
-                           
+                     
+                            
+                            
+                            
+                       
+                            
                             </tr>
                     
                             
@@ -132,8 +109,6 @@
                     
                 
         </table>
-        
-                
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
 </div>

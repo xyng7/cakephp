@@ -31,30 +31,33 @@
 	<tr>    
                 <th><?php echo __('Number'); ?></th>
 		<th><?php echo __('Name'); ?></th>
+                <th><?php echo __('Sets'); ?></th>
+                <th><?php echo __('Reps'); ?></th>
+                <th><?php echo __('Rest'); ?></th>
 		<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php
 		$i = 1;
 		foreach ($program['Exercise'] as $exercise): ?>
 		<tr>
+                        
                         <td><?php echo $i; ?></td>
 			<td><?php echo $exercise['name']; ?></td>
-			<td>
-				<?php echo $this->Html->link(__('View'), array('controller' => 'exercises', 'action' => 'view', $exercise['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'exercises', 'action' => 'edit', $exercise['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'exercises', 'action' => 'delete', $exercise['id']), null, __('Are you sure you want to delete # %s?', $exercise['id'])); ?>
+                        <td><?php echo $exercisesPrograms[$i - 1]['exercises_programs']['rec_sets']; ?></td>
+                        <td><?php echo $exercisesPrograms[$i - 1]['exercises_programs']['rec_reps']; ?></td>
+                        <td><?php echo $exercisesPrograms[$i - 1]['exercises_programs']['rec_res']; ?></td>
+                        <td>
+				<?php echo $this->Html->link(__('Manage Exercise'), array('controller' => 'Exercises', 'action' => 'view', $exercise['id'])); ?>
+				
 			</td>
+                        
 		</tr>
                 <?php $i++; ?>
 	<?php endforeach; ?>
 	</table>
-<?php endif; ?>
+            <?php endif; ?>
 
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Exercise'), array('controller' => 'exercises', 'action' => 'add')); ?> </li>
-		</ul>
-	</div>
+	
 </div>
 </div>
 <div class="actions">
@@ -62,6 +65,6 @@
 	<ul>
 		<li><?php echo $this->Html->link(__('Edit Program'), array('action' => 'edit', $program['Program']['id'])); ?> </li>
 		<li><?php echo $this->Form->postLink(__('Delete Program'), array('action' => 'delete', $program['Program']['id']), null, __('Are you sure you want to delete # %s?', $program['Program']['id'])); ?> </li>
-		
+		<li><?php echo $this->Html->link(__('List Programs'), array('action' => 'index')); ?> </li>
 	</ul>
 </div>

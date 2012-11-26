@@ -140,7 +140,9 @@ class UsersController extends AppController {
         $this->User->id = $id;
       
        if (!$this->User->exists() || AuthComponent::user('id') != $id) {   
-           throw new NotFoundException(__('Invalid user'));
+           //throw new NotFoundException(__('Invalid user'));
+           $this->Session->setFlash(__('Unauthorised'));
+           $this->redirect(array('action' => 'index'));
             
         }
         if (AuthComponent::password($this->request->data('User.password')) == AuthComponent::password($this->request->data('User.password_confirm')))
